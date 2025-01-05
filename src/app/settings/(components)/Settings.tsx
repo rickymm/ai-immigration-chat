@@ -35,7 +35,6 @@ export function Settings() {
         <ToggleGroup
           type="single"
           onValueChange={handleAccentColor}
-          variant="outline"
           size="lg"
           className="justify-start"
         >
@@ -47,11 +46,8 @@ export function Settings() {
                 key={colorKey}
                 value={colorKey}
                 aria-label={`${t("aria-accent")}: ${colorKey}`}
-              >
-                <CircleIcon
-                  className={`size-14 text-${color} fill-${color} stroke-${color}`}
-                />
-              </ToggleGroupItem>
+                className={`bg-${color}!`}
+              />
             );
           })}
         </ToggleGroup>

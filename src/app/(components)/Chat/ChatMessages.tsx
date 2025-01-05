@@ -7,19 +7,21 @@ import { type Message } from "ai/react";
 import { InboxIcon } from "lucide-react";
 import { MyBeaconLogo } from "@/components/svgs/my-beacon-logo";
 import { MarkdownReader } from "./MarkdownReader";
-import { UserAvatar } from "@/components/functional/user-avatar";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export function ChatMessages({ messages }: { messages: Message[] }) {
   const t = useTranslations("ChatPage");
   const isMessagesEmpty = messages.length === 0;
-  const chatBottom = useRef<null | HTMLDivElement>(null);
+  const chatContainerId = "chat-container";
 
   useEffect(() => {
     if (isMessagesEmpty) return;
-
-    chatBottom.current?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(chatContainerId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "start",
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
@@ -36,7 +38,10 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
   }
 
   return (
-    <ScrollArea className="w-full h-full pr-4 py-24 md:py-28">
+    <ScrollArea
+      className="w-full h-full pr-4 py-24 md:py-28"
+      id={chatContainerId}
+    >
       {messages.map((message) => {
         const isUser = message.role === "user";
         const createdAt = formatDateTime(message.createdAt);
@@ -48,9 +53,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
               "justify-end": isUser,
             })}
           >
-            {isUser ? (
-              <UserAvatar />
-            ) : (
+            {!isUser && (
               <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full bg-white dark:bg-slate-800 p-1 border">
                 <MyBeaconLogo className="aspect-square w-full h-full" />
               </div>
@@ -64,8 +67,10 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
               <MarkdownReader
                 content={message.content}
                 className={cn(
-                  "bg-white dark:bg-slate-800 px-4 py-2 whitespace-pre-wrap rounded-xl border",
-                  isUser ? "rounded-br-none" : "rounded-bl-none"
+                  "px-4 py-2 whitespace-pre-wrap rounded-xl border",
+                  isUser
+                    ? "rounded-br-none bg-primary/20 dark:bg-primary"
+                    : "rounded-bl-none bg-white dark:bg-slate-800"
                 )}
               />
 
@@ -81,7 +86,6 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
           </article>
         );
       })}
-      <div className="hidden" ref={chatBottom} />
     </ScrollArea>
   );
 }
