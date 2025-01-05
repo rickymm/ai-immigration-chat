@@ -32,9 +32,9 @@ export function ProfileMenu() {
   const t = useTranslations("ProfileMenu");
   const { theme, setTheme } = useTheme();
 
+  // TODO: refactor to shared function
   const { refresh } = useRouter();
-
-  function handleSelectLanguage(lang: "en" | "pt-br") {
+  function handleSelectLanguage(lang: "en" | "pt-br" | "fr") {
     document.cookie = `language=${JSON.stringify(lang)}`;
     refresh();
   }
@@ -106,6 +106,9 @@ export function ProfileMenu() {
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleSelectLanguage("pt-br")}>
                 🇧🇷 {t("portuguese")}
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleSelectLanguage("fr")}>
+                🇫🇷 {t("french")}
               </DropdownMenuItem>
             </DropdownMenuSubContent>
           </DropdownMenuPortal>

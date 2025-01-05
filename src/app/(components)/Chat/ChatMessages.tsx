@@ -5,26 +5,38 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn, formatDateTime } from "@/lib/utils";
 import { type Message } from "ai/react";
 import { InboxIcon } from "lucide-react";
-import { MyBeaconLogo } from "../my-beacon-logo";
+import { MyBeaconLogo } from "@/components/svgs/my-beacon-logo";
 import { MarkdownReader } from "./MarkdownReader";
 import { UserAvatar } from "@/components/functional/user-avatar";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef } from "react";
 
 export function ChatMessages({ messages }: { messages: Message[] }) {
   const t = useTranslations("ChatPage");
+  const isMessagesEmpty = messages.length === 0;
+  const chatBottom = useRef<null | HTMLDivElement>(null);
 
-  if (messages.length === 0) {
+  useEffect(() => {
+    if (isMessagesEmpty) return;
+
+    chatBottom.current?.scrollIntoView({ behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages]);
+
+  if (isMessagesEmpty) {
     return (
-      <section className="container flex flex-col justify-center items-center w-full h-full">
-        <InboxIcon className="size-32 font-thin" />
-        <span className="font-bold text-xl">{t("emptyState.title")}</span>
-        <p className="text-md">{t("emptyState.description")}</p>
+      <section className="container flex flex-col justify-center items-center w-full h-[--screen-h]">
+        <InboxIcon className="size-24 md:size-32" />
+        <span className="font-bold text-lg md:text-2xl">
+          {t("emptyState.title")}
+        </span>
+        <p className="text-sm md:text-lg">{t("emptyState.description")}</p>
       </section>
     );
   }
 
   return (
-    <ScrollArea className="w-full h-full pr-4 pb-4">
+    <ScrollArea className="w-full h-full pr-4 py-24 md:py-28">
       {messages.map((message) => {
         const isUser = message.role === "user";
         const createdAt = formatDateTime(message.createdAt);
@@ -69,6 +81,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
           </article>
         );
       })}
+      <div className="hidden" ref={chatBottom} />
     </ScrollArea>
   );
 }

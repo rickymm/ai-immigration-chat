@@ -1,0 +1,46 @@
+{
+  "ChatPage": {
+    "description": "Discutez avec notre agent IA spécialisé en immigration",
+    "emptyState": {
+      "description": "Commencez par envoyer votre première question.",
+      "title": "Pas encore de messages"
+    },
+    "input-placeholder": "Comment puis-je t'aider?",
+    "sr-ai-said": "AI a dit :",
+    "sr-chat-input": "Entrée dans le chat",
+    "sr-send-button": "Envoyer",
+    "sr-you-said": "Vous avez dit:",
+    "title": "Chatbot d’immigration"
+  },
+  "ProfileMenu": {
+    "dark": "Sombre",
+    "english": "Anglais",
+    "language": "Langue",
+    "light": "Lumière",
+    "logout": "Déconnexion",
+    "portuguese": "portugais",
+    "settings": "Paramètres",
+    "sr-title": "Menu Profil",
+    "system": "Système",
+    "theme": "Thème",
+    "french": "Français"
+  },
+  "SettingsPage": {
+    "backButton": "Chat",
+    "description": "Configurez l'image de l'avatar, la couleur d'accent et certaines informations utilisateur.",
+    "title": "Paramètres",
+    "accentLabel": "Couleur d'accentuation",
+    "aria-accent": "Couleur",
+    "dangerLabel": "Zone dangereuse",
+    "dark": "Sombre",
+    "deactivateButton": "Désactiver le compte",
+    "english": "Anglais",
+    "exampleButton": "Exemple",
+    "french": "Français",
+    "languageLabel": "Langue",
+    "light": "Lumière",
+    "portuguese": "Portugais",
+    "system": "Système",
+    "themeLabel": "Thème"
+  }
+}

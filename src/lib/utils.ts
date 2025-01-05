@@ -16,3 +16,7 @@ export function formatDateTime(date: Date | string | undefined) {
     minute: "numeric",
   }).format(new Date(date));
 }
+
+export function changeCssAccentColor(color: string) {
+  document.documentElement.style.setProperty("--primary", `var(${color})`);
+}

@@ -26,7 +26,7 @@ export function ChatForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full flex items-center overflow-hidden rounded-md border bg-white dark:bg-white/10 backdrop-blur-md focus-within:ring-1 focus-within:ring-ring p-2 pr-4"
+      className="fixed bottom-4 left-auto w-[--mobile-w] md:max-w-[--screen-w] flex items-center overflow-hidden rounded-md border focus-within:ring-1 focus-within:ring-ring focus-within:ring-primary p-2 pr-4 glass"
     >
       <Label htmlFor="chat-input" className="sr-only">
         {t("sr-chat-input")}

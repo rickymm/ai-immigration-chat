@@ -4,13 +4,14 @@
 
 @layer base {
   :root {
+    /* Shadcn */
     --background: 40, 43%, 97%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 189 49% 21%;
+    --primary: var(--beacon-primary-color);
     --primary-foreground: 210 40% 98%;
     --secondary: 143 53, 82%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -29,16 +30,26 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Custom variables */
+    --beacon-primary-color: 189 49% 21%;
+    --blue-color: 217 91% 60%;
+    --green-color: 160 82% 40%;
+    --pink-color: 330 81% 60%;
+    --screen-w: 70vw;
+    --mobile-w: 92vw;
+    --screen-h: 95vh;
   }
 
   .dark {
+    /* Shadcn */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 189 49% 21%;
+    --primary: var(--beacon-primary-color);
     --primary-foreground: 210 40% 98%;
     --secondary: 143 53, 82%;
     --secondary-foreground: 210 40% 98%;
@@ -70,5 +81,17 @@
   ul,
   ol {
     list-style: revert;
+  }
+
+  .glass {
+    @apply bg-white/50 dark:bg-slate-500/30 backdrop-blur-md;
+  }
+
+  .header {
+    @apply fixed top-4 glass z-10 rounded-md left-auto w-[--mobile-w] md:w-[--screen-w] shadow-sm p-4 md:p-6 mb-4 flex space-x-4;
+  }
+
+  .form-group {
+    @apply flex flex-col space-y-2;
   }
 }

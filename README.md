@@ -1,21 +1,21 @@
 ## TODO
 
-- [x] Add shadcn
-- [ ] Configure Vercel AI SDK such as API route and wrapper
-- [ ] Add OpenAI key (follow sdk pattern)
 - [ ] Can I fine tune the AI for Immigration purpose? https://sdk.vercel.ai/docs/getting-started/nextjs-app-router#enhance-your-chatbot-with-tools
-- [ ] Add internationalization `i18n`
-- [ ] Add markdown support `markdown-to-jsx`
 - [ ] Add and configure test environment
 - [ ] Add profile to change fun stuff like: colors, user info (names), AI fun name/images
 - [ ] Add `cmd + k` functionality
-- [ ] Have a history of conversation?
 - [ ] Add message reaction and save it on localhost?
+- [ ] Add login/logout user profile
 - [ ] Voice input? Does Open AI/sdk accepts this? If not at least add a voice input but don't send audio file https://sdk.vercel.ai/docs/foundations/prompts#example-mp3-audio-file-from-buffer
-- [ ] Add Github Actions to run tests
+- [ ] Configure eslint and prettier
+- [ ] Add Github Actions to run tests, prettier and eslint
 - [ ] Add Github rules to only merge with PR
 - [ ] Deploy to vercel
 - [ ] Add beautiful documentation here on README
+
+## BUGS TODO
+
+- [ ] Fix auto scroll
 
 ---
 

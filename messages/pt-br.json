@@ -22,6 +22,25 @@
     "language": "Linguagem",
     "english": "Inglês",
     "portuguese": "Português",
-    "logout": "Sair"
+    "logout": "Sair",
+    "french": "Francês"
+  },
+  "SettingsPage": {
+    "backButton": "Chat",
+    "description": "Configure a imagem do avatar, a cor de destaque e algumas informações do usuário.",
+    "title": "Configurações",
+    "accentLabel": "Cor de destaque",
+    "aria-accent": "Cor",
+    "dangerLabel": "Zona de perigo",
+    "dark": "Escuro",
+    "deactivateButton": "Desativar conta",
+    "english": "Inglês",
+    "exampleButton": "Exemplo",
+    "french": "Francês",
+    "languageLabel": "Linguagem",
+    "light": "Claro",
+    "portuguese": "Português",
+    "system": "Sistema",
+    "themeLabel": "Tema"
   }
 }

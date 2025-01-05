@@ -22,6 +22,25 @@
     "language": "Language",
     "english": "English",
     "portuguese": "Portuguese",
+    "french": "French",
     "logout": "Logout"
+  },
+  "SettingsPage": {
+    "title": "Settings",
+    "description": "Configure avatar image, accent color and some user information.",
+    "backButton": "Chat",
+    "accentLabel": "Accent Color",
+    "aria-accent": "Color",
+    "exampleButton": "Example",
+    "themeLabel": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "languageLabel": "Language",
+    "english": "English",
+    "portuguese": "Portuguese",
+    "french": "French",
+    "dangerLabel": "Danger Zone",
+    "deactivateButton": "Deactivate Account"
   }
 }

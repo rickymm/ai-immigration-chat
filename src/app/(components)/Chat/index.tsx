@@ -10,13 +10,13 @@ export function Chat() {
   });
 
   return (
-    <>
+    <section className="relative">
       <ChatMessages messages={messages} />
       <ChatForm
         input={input}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
       />
-    </>
+    </section>
   );
 }
