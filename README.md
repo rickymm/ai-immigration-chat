@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## TODO
 
-## Getting Started
+- [x] Add shadcn
+- [ ] Configure Vercel AI SDK such as API route and wrapper
+- [ ] Add OpenAI key (follow sdk pattern)
+- [ ] Can I fine tune the AI for Immigration purpose? https://sdk.vercel.ai/docs/getting-started/nextjs-app-router#enhance-your-chatbot-with-tools
+- [ ] Add internationalization `i18n`
+- [ ] Add markdown support `markdown-to-jsx`
+- [ ] Add and configure test environment
+- [ ] Add profile to change fun stuff like: colors, user info (names), AI fun name/images
+- [ ] Add `cmd + k` functionality
+- [ ] Have a history of conversation?
+- [ ] Add message reaction and save it on localhost?
+- [ ] Voice input? Does Open AI/sdk accepts this? If not at least add a voice input but don't send audio file https://sdk.vercel.ai/docs/foundations/prompts#example-mp3-audio-file-from-buffer
+- [ ] Add Github Actions to run tests
+- [ ] Add Github rules to only merge with PR
+- [ ] Deploy to vercel
+- [ ] Add beautiful documentation here on README
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Coding Challenge: AI Immigration Chatbot with NextJS and React
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Focus on component:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- testing
+- clear documentation
+- effective state management
+- accurate AI responses
+- high code quality
+- proper error handling
+- efficient user interaction
+- responsive design
+- successful deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Features
 
-## Learn More
+- **User Interaction**: The chatbot should handle user inputs and provide relevant responses in a conversational UI.
+- **Responsive Design**: Ensure the chatbot works well on various screen sizes and devices.
+- **State Management**: Implement state management for the conversation flow.
 
-To learn more about Next.js, take a look at the following resources:
+### Submission
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Code**: Ensure your code is well-documented and follows best practices.
+2. **README**: Update the README with instructions on how to run the application and any necessary environment setup.
+3. **Tests**: Include unit tests for your components and utility functions.
+4. **Submission**: Submit your code as a GitHub repository link.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Bonus Points
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **User Authentication**: Implement user authentication to personalize responses and save conversation history.
+- \***\*Localization**: Add support for multiple languages using a library like next-i18next.\*\*
+- **Accessibility**: Ensure the chatbot is fully accessible and complies with WCAG guidelines.
+- **Advanced UI Features**: Implement features like typing indicators, message reactions, or voice input.
+- **Deployment**: Deploy the application to a cloud service (e.g., Vercel, Netlify) and provide a live demo link.
