@@ -59,7 +59,11 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
               </div>
             )}
 
-            <div className="flex flex-col ">
+            <div
+              className={cn("flex flex-col", {
+                "items-end": isUser,
+              })}
+            >
               <Label className="sr-only">
                 {t(isUser ? "sr-you-said" : "sr-ai-said")}
               </Label>
@@ -67,7 +71,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
               <MarkdownReader
                 content={message.content}
                 className={cn(
-                  "px-4 py-2 whitespace-pre-wrap rounded-xl border",
+                  "px-4 py-2 whitespace-pre-wrap rounded-xl border max-w-max",
                   isUser
                     ? "rounded-br-none bg-primary/20 dark:bg-primary"
                     : "rounded-bl-none bg-white dark:bg-slate-800"

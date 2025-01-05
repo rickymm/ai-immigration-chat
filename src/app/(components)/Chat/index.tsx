@@ -5,9 +5,10 @@ import { ChatForm } from "./ChatForm";
 import { ChatMessages } from "./ChatMessages";
 
 export function Chat() {
-  const { input, handleInputChange, handleSubmit, messages } = useChat({
-    api: "/api/chat",
-  });
+  const { input, handleInputChange, handleSubmit, messages, isLoading, stop } =
+    useChat({
+      api: "/api/chat",
+    });
 
   return (
     <section className="relative">
@@ -16,6 +17,8 @@ export function Chat() {
         input={input}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
+        isLoading={isLoading}
+        stop={stop}
       />
     </section>
   );

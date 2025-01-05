@@ -3,21 +3,25 @@
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { SendHorizonalIcon } from "lucide-react";
+import { SendHorizontalIcon, XIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export function ChatForm({
   input,
   handleInputChange,
   handleSubmit,
+  isLoading,
+  stop,
 }: {
   input: string;
   handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>): void;
   handleSubmit(): void;
+  isLoading: boolean;
+  stop(): void;
 }) {
   const t = useTranslations("ChatPage");
   function sendOnEnter(e: React.KeyboardEvent<HTMLTextAreaElement>) {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && !isLoading) {
       e.preventDefault();
       handleSubmit();
     }
@@ -40,10 +44,23 @@ export function ChatForm({
         onKeyDown={sendOnEnter}
         className="resize-none border-0 px-3 shadow-none focus-visible:ring-0 dark:bg-transparent"
       />
-      <Button type="submit" size="icon" className="gap-1.5">
-        <span className="sr-only">{t("sr-send-button")}</span>
-        <SendHorizonalIcon className="size-3.5" />
-      </Button>
+      {isLoading ? (
+        <Button
+          type="button"
+          variant="destructive"
+          size="icon"
+          className="gap-1.5"
+          onClick={stop}
+        >
+          <span className="sr-only">{t("sr-send-button")}</span>
+          <XIcon className="size-3.5" />
+        </Button>
+      ) : (
+        <Button type="submit" size="icon" className="gap-1.5">
+          <span className="sr-only">{t("sr-send-button")}</span>
+          <SendHorizontalIcon className="size-3.5" />
+        </Button>
+      )}
     </form>
   );
 }

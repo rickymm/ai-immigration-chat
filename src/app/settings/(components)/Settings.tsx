@@ -6,7 +6,12 @@ import { Separator } from "@/components/ui/separator";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { COLORS } from "@/lib/constants";
 import { changeCssAccentColor } from "@/lib/utils";
-import { LaptopIcon, MoonIcon, SunIcon, CircleIcon } from "lucide-react";
+import {
+  LaptopIcon,
+  MoonIcon,
+  SunIcon,
+  SendHorizontalIcon,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
@@ -32,26 +37,31 @@ export function Settings() {
     <div className="flex flex-col space-y-6">
       <div className="form-group">
         <Label>{t("accentLabel")}</Label>
-        <ToggleGroup
-          type="single"
-          onValueChange={handleAccentColor}
-          size="lg"
-          className="justify-start"
-        >
+        <div className="flex space-x-4">
+          {/* TODO: Find out about bug that everything is working but when changing
+          global.css, these buttons lose colors */}
           {Object.keys(COLORS).map((colorKey) => {
             const color = COLORS[colorKey as keyof typeof COLORS].tw;
-
             return (
-              <ToggleGroupItem
+              <Button
                 key={colorKey}
-                value={colorKey}
+                onClick={() => handleAccentColor(colorKey)}
                 aria-label={`${t("aria-accent")}: ${colorKey}`}
-                className={`bg-${color}!`}
+                className={`size-8 ${color} hover:${color}`}
               />
             );
           })}
-        </ToggleGroup>
-        <Button>{t("exampleButton")}</Button>
+        </div>
+        <div className="flex gap-2">
+          <Button>{t("exampleButton")}</Button>
+          <Button>
+            <SendHorizontalIcon />
+          </Button>
+          <div className="flex px-3 py-1.5 rounded-xl border rounded-br-none bg-primary/20 dark:bg-primary ">
+            {t("exampleButton")}
+          </div>
+          <Button variant="link">{t("exampleButton")}</Button>
+        </div>
       </div>
 
       <div className="form-group">
