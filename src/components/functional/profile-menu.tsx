@@ -1,12 +1,9 @@
 "use client";
 
-import { UserAvatar } from "@/components/functional/user-avatar";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuSub,
@@ -17,11 +14,11 @@ import {
 import {
   LanguagesIcon,
   LaptopIcon,
-  LogOutIcon,
   MoonIcon,
   SettingsIcon,
   SunIcon,
   ToggleLeftIcon,
+  ArrowUpRightFromSquareIcon,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
@@ -43,24 +40,9 @@ export function ProfileMenu() {
     <DropdownMenu>
       <DropdownMenuTrigger className="rounded-full">
         <span className="sr-only">{t("sr-title")}</span>
-        <UserAvatar />
+        <SettingsIcon />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-52 mr-4 md:mr-0">
-        <DropdownMenuLabel>
-          <div className="flex flex-col">
-            {/* TODO: Replace with user name and email */}
-            <span className="text-lg font-semibold">Ricky Moino</span>
-            <span className="text-sm text-gray-600">rickymafra@gmail.com</span>
-          </div>
-        </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link href="/settings">
-            <SettingsIcon />
-            {t("settings")}
-          </Link>
-        </DropdownMenuItem>
-
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <ToggleLeftIcon />
@@ -115,10 +97,11 @@ export function ProfileMenu() {
         </DropdownMenuSub>
 
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="w-full">
-          <Button variant="destructive" className="w-full">
-            {t("logout")} <LogOutIcon />
-          </Button>
+        <DropdownMenuItem asChild>
+          <Link href="/settings">
+            <ArrowUpRightFromSquareIcon />
+            {t("settings")}
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { COLORS } from "@/lib/constants";
 import { changeCssAccentColor } from "@/lib/utils";
@@ -99,13 +98,6 @@ export function Settings() {
           <ToggleGroupItem value="pt-br">🇧🇷 {t("portuguese")}</ToggleGroupItem>
           <ToggleGroupItem value="fr">🇫🇷 {t("french")}</ToggleGroupItem>
         </ToggleGroup>
-      </div>
-
-      <Separator className="my-6" />
-
-      <div className="form-group">
-        <Label className="text-destructive">{t("dangerLabel")}</Label>
-        <Button variant="destructive">{t("deactivateButton")}</Button>
       </div>
     </div>
   );
