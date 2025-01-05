@@ -1,0 +1,27 @@
+{
+  "ChatPage": {
+    "title": "Chatbot de Imigração",
+    "description": "Converse com nosso agente de IA especialista em imigração",
+    "emptyState": {
+      "description": "Comece enviando sua primeira pergunta.",
+      "title": "Nenhuma mensagem ainda"
+    },
+    "input-placeholder": "Como posso ajudá-lo?",
+    "sr-ai-said": "IA disse:",
+    "sr-chat-input": "Campo de texto",
+    "sr-send-button": "Enviar",
+    "sr-you-said": "Você disse:"
+  },
+  "ProfileMenu": {
+    "sr-title": "Menu de perfil",
+    "settings": "Configurações",
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema",
+    "language": "Linguagem",
+    "english": "Inglês",
+    "portuguese": "Português",
+    "logout": "Sair"
+  }
+}

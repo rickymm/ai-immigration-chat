@@ -1,0 +1,27 @@
+{
+  "ChatPage": {
+    "title": "Immigration Chatbot",
+    "description": "Chat with our AI agent specialized in immigration",
+    "sr-chat-input": "Chat input",
+    "sr-send-button": "Send",
+    "input-placeholder": "How can I help you?",
+    "emptyState": {
+      "title": "No messages yet",
+      "description": "Start by sending your first question."
+    },
+    "sr-you-said": "You said:",
+    "sr-ai-said": "AI said:"
+  },
+  "ProfileMenu": {
+    "sr-title": "Profile menu",
+    "settings": "Settings",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "language": "Language",
+    "english": "English",
+    "portuguese": "Portuguese",
+    "logout": "Logout"
+  }
+}
