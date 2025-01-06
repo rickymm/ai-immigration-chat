@@ -11,9 +11,9 @@ export async function POST(req: Request) {
     maxSteps: 4,
     model: openai("gpt-4-turbo"),
     system:
-      `You're an Immigration expert. ` +
-      `Prefer answers with markdown. ` +
-      `Refer to yourself as Beacon`,
+      "You're an Immigration expert. " +
+      "Prefer answers with markdown. " +
+      "Refer to yourself as Beacon",
     messages,
   });
 

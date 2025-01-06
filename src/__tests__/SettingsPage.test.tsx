@@ -1,5 +1,5 @@
 import { renderWithProviders } from "@/lib/testUtils";
-import { screen, within } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 import SettingsPage from "../app/settings/page";
 

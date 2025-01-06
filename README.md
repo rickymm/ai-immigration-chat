@@ -8,6 +8,8 @@
 - [ ] Add beautiful documentation here on README
 - [ ] Receive `api-key` as parameter
 - [ ] Maybe play with having multiple agents (choosing them in the Settings page)
+- [ ] Check missing todos
+- [ ] Check/Fix colors on settings page
 
 ---
 
