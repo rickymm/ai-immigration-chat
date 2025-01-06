@@ -9,7 +9,7 @@ export default function Home() {
     <main className="w-full min-h-screen flex items-center justify-center">
       <div className="w-full m-4 md:m-0 md:w-[--screen-w] h-[--screen-h]">
         <section
-          className="header justify-between items-center"
+          className="glass-card justify-between items-center"
           data-testid="header-section"
         >
           <div className="flex-col">

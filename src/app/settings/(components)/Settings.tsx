@@ -28,9 +28,9 @@ export function Settings() {
   }
 
   return (
-    <div className="flex flex-col space-y-6">
-      <div className="form-group">
-        <Label>{t("accentLabel")}</Label>
+    <div className="flex flex-col space-y-6" data-testid="settings-container">
+      <div className="form-group" data-testid="accent-container">
+        <Label data-testid="accent-label">{t("accentLabel")}</Label>
         <div className="flex space-x-4">
           {/* TODO: Find out about bug that everything is working but when changing
           global.css, these buttons lose colors */}
@@ -42,56 +42,68 @@ export function Settings() {
                 onClick={() => handleAccentColor(colorKey)}
                 aria-label={`${t("aria-accent")}: ${colorKey}`}
                 className={`size-8 ${color} hover:${color}`}
+                data-testid="color-button"
               />
             );
           })}
         </div>
         <div className="flex gap-2">
-          <Button>{t("exampleButton")}</Button>
-          <Button>
+          <Button data-testid="element-example">{t("exampleButton")}</Button>
+          <Button data-testid="element-example">
             <SendHorizontalIcon />
           </Button>
-          <div className="flex px-3 py-1.5 rounded-xl border rounded-br-none bg-primary/20 dark:bg-primary ">
+          <div
+            className="flex px-3 py-1.5 rounded-xl border rounded-br-none bg-primary/20 dark:bg-primary"
+            data-testid="element-example"
+          >
             {t("exampleButton")}
           </div>
-          <Button variant="link">{t("exampleButton")}</Button>
+          <Button variant="link" data-testid="element-example">
+            {t("exampleButton")}
+          </Button>
         </div>
       </div>
 
-      <div className="form-group">
-        <Label>{t("themeLabel")}</Label>
+      <div className="form-group" data-testid="theme-container">
+        <Label data-testid="theme-label">{t("themeLabel")}</Label>
         <ToggleGroup
           type="single"
           onValueChange={setTheme}
           variant="outline"
           className="justify-start"
         >
-          <ToggleGroupItem value="light">
+          <ToggleGroupItem value="light" data-testid="theme-light">
             <SunIcon className="size-4" />
             {t("light")}
           </ToggleGroupItem>
-          <ToggleGroupItem value="dark">
+          <ToggleGroupItem value="dark" data-testid="theme-dark">
             <MoonIcon className="h-4 w-4" />
             {t("dark")}
           </ToggleGroupItem>
-          <ToggleGroupItem value="system">
+          <ToggleGroupItem value="system" data-testid="theme-system">
             <LaptopIcon className="size-4" />
             {t("system")}
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
 
-      <div className="form-group">
-        <Label>{t("languageLabel")}</Label>
+      <div className="form-group" data-testid="language-container">
+        <Label data-testid="language-label">{t("languageLabel")}</Label>
         <ToggleGroup
           type="single"
           onValueChange={handleSelectLanguage}
           variant="outline"
           className="justify-start"
         >
-          <ToggleGroupItem value="en">🇬🇧 {t("english")}</ToggleGroupItem>
-          <ToggleGroupItem value="pt-br">🇧🇷 {t("portuguese")}</ToggleGroupItem>
-          <ToggleGroupItem value="fr">🇫🇷 {t("french")}</ToggleGroupItem>
+          <ToggleGroupItem value="en" data-testid="language-en">
+            🇬🇧 {t("english")}
+          </ToggleGroupItem>
+          <ToggleGroupItem value="pt-br" data-testid="language-ptBr">
+            🇧🇷 {t("portuguese")}
+          </ToggleGroupItem>
+          <ToggleGroupItem value="fr" data-testid="language-fr">
+            🇫🇷 {t("french")}
+          </ToggleGroupItem>
         </ToggleGroup>
       </div>
     </div>

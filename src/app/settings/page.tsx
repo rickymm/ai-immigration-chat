@@ -10,8 +10,13 @@ export default function SettingsPage() {
 
   return (
     <main className="w-full min-h-screen flex items-center justify-center">
-      <section className="header dark:bg-slate-900 flex-col w-[--mobile-w] m-4 md:m-0 md:w-max h-max space-x-0 md:px-12 px-6">
-        <Button variant="link" className="w-min p-0" asChild>
+      <section className="glass-card dark:bg-slate-900 flex-col w-[--mobile-w] m-4 md:m-0 md:w-max h-max space-x-0 md:px-12 px-6">
+        <Button
+          variant="link"
+          className="w-min p-0"
+          asChild
+          data-testid="return-button"
+        >
           <Link href="/">
             <ChevronLeftIcon className="size-8" />
             {t("backButton")}
@@ -21,6 +26,7 @@ export default function SettingsPage() {
         <h2 className="text-xs md:text-lg font-medium text-gray-500 dark:text-gray-300">
           {t("description")}
         </h2>
+
         <Separator className="my-6" />
 
         <Settings />
