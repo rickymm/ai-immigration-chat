@@ -10,7 +10,10 @@ export async function POST(req: Request) {
   const result = streamText({
     maxSteps: 4,
     model: openai("gpt-4-turbo"),
-    system: `You're an Immigration expert. ` + `Prefer answers with markdown. `,
+    system:
+      `You're an Immigration expert. ` +
+      `Prefer answers with markdown. ` +
+      `Refer to yourself as Beacon`,
     messages,
   });
 
