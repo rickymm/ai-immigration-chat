@@ -27,7 +27,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
 
   if (isMessagesEmpty) {
     return (
-      <section className="container flex flex-col justify-center items-center w-full h-[--screen-h]">
+      <section className="flex flex-col justify-center items-center w-full h-[--screen-h]">
         <InboxIcon className="size-24 md:size-32" />
         <span className="font-bold text-lg md:text-2xl">
           {t("emptyState.title")}
