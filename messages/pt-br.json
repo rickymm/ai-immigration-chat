@@ -10,7 +10,8 @@
     "sr-ai-said": "IA disse:",
     "sr-chat-input": "Campo de texto",
     "sr-send-button": "Enviar",
-    "sr-you-said": "Você disse:"
+    "sr-you-said": "Você disse:",
+    "sr-stop-button": "Parar geração"
   },
   "ProfileMenu": {
     "sr-title": "Menu de perfil",
@@ -27,7 +28,7 @@
   },
   "SettingsPage": {
     "backButton": "Chat",
-    "description": "Configure a imagem do avatar, a cor de destaque e algumas informações do usuário.",
+    "description": "Altere a cor de destaque, o tema e o idioma.",
     "title": "Configurações",
     "accentLabel": "Cor de destaque",
     "aria-accent": "Cor",

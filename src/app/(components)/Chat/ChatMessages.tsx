@@ -27,7 +27,10 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
 
   if (isMessagesEmpty) {
     return (
-      <section className="flex flex-col justify-center items-center w-full h-[--screen-h]">
+      <section
+        className="flex flex-col justify-center items-center w-full h-[--screen-h]"
+        data-testid="empty-messages-section"
+      >
         <InboxIcon className="size-24 md:size-32" />
         <span className="font-bold text-lg md:text-2xl">
           {t("emptyState.title")}
@@ -41,6 +44,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
     <ScrollArea
       className="w-full h-full pr-4 py-24 md:py-28"
       id={chatContainerId}
+      data-testid="messages-section"
     >
       {messages.map((message) => {
         const isUser = message.role === "user";
@@ -52,6 +56,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
             className={cn("flex items-end gap-2 mb-4 h-full", {
               "justify-end": isUser,
             })}
+            data-testid="message-bubble"
           >
             {!isUser && (
               <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full bg-white dark:bg-slate-800 p-1 border">

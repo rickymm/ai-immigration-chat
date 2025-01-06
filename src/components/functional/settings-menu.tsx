@@ -25,7 +25,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export function ProfileMenu() {
+export function SettingsMenu() {
   const t = useTranslations("ProfileMenu");
   const { theme, setTheme } = useTheme();
 
@@ -38,21 +38,28 @@ export function ProfileMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="rounded-full">
+      <DropdownMenuTrigger
+        className="rounded-full"
+        data-testid="settings-menu-button"
+      >
         <span className="sr-only">{t("sr-title")}</span>
         <SettingsIcon />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-52 mr-4 md:mr-0">
+      <DropdownMenuContent
+        className="min-w-52 mr-4 md:mr-0"
+        data-testid="menu-items-container"
+      >
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger data-testid="theme-menu">
             <ToggleLeftIcon />
             {t("theme")}
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
-            <DropdownMenuSubContent>
+            <DropdownMenuSubContent data-testid="theme-menu-container">
               <DropdownMenuItem
                 onClick={() => setTheme("light")}
                 disabled={theme === "light"}
+                data-testid="light"
               >
                 <SunIcon />
                 {t("light")}
@@ -60,6 +67,7 @@ export function ProfileMenu() {
               <DropdownMenuItem
                 onClick={() => setTheme("dark")}
                 disabled={theme === "dark"}
+                data-testid="dark"
               >
                 <MoonIcon />
                 {t("dark")}
@@ -68,6 +76,7 @@ export function ProfileMenu() {
               <DropdownMenuItem
                 onClick={() => setTheme("system")}
                 disabled={theme === "system"}
+                data-testid="system"
               >
                 <LaptopIcon />
                 {t("system")}
@@ -77,19 +86,28 @@ export function ProfileMenu() {
         </DropdownMenuSub>
 
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger data-testid="language-menu">
             <LanguagesIcon />
             {t("language")}
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
-            <DropdownMenuSubContent>
-              <DropdownMenuItem onClick={() => handleSelectLanguage("en")}>
+            <DropdownMenuSubContent data-testid="language-menu-container">
+              <DropdownMenuItem
+                onClick={() => handleSelectLanguage("en")}
+                data-testid="english"
+              >
                 🇬🇧 {t("english")}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleSelectLanguage("pt-br")}>
+              <DropdownMenuItem
+                onClick={() => handleSelectLanguage("pt-br")}
+                data-testid="portuguese"
+              >
                 🇧🇷 {t("portuguese")}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleSelectLanguage("fr")}>
+              <DropdownMenuItem
+                onClick={() => handleSelectLanguage("fr")}
+                data-testid="french"
+              >
                 🇫🇷 {t("french")}
               </DropdownMenuItem>
             </DropdownMenuSubContent>
@@ -97,7 +115,8 @@ export function ProfileMenu() {
         </DropdownMenuSub>
 
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
+
+        <DropdownMenuItem asChild data-testid="more-settings-link">
           <Link href="/settings">
             <ArrowUpRightFromSquareIcon />
             {t("settings")}

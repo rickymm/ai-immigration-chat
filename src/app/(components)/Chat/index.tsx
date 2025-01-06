@@ -11,7 +11,7 @@ export function Chat() {
     });
 
   return (
-    <section className="relative">
+    <section data-testid="chat-section">
       <ChatMessages messages={messages} />
       <ChatForm
         input={input}

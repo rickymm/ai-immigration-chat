@@ -10,7 +10,8 @@
     "sr-chat-input": "Entrée dans le chat",
     "sr-send-button": "Envoyer",
     "sr-you-said": "Vous avez dit:",
-    "title": "Chatbot d’immigration"
+    "title": "Chatbot d’immigration",
+    "sr-stop-button": "Arrêter la génération"
   },
   "ProfileMenu": {
     "dark": "Sombre",
@@ -27,7 +28,7 @@
   },
   "SettingsPage": {
     "backButton": "Chat",
-    "description": "Configurez l'image de l'avatar, la couleur d'accent et certaines informations utilisateur.",
+    "description": "Changez la couleur d'accent, le thème et la langue.",
     "title": "Paramètres",
     "accentLabel": "Couleur d'accentuation",
     "aria-accent": "Couleur",

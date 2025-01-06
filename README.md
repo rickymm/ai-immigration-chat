@@ -1,12 +1,13 @@
 ## TODO
 
-- [ ] Add and configure test environment
 - [ ] Voice input? Does Open AI/sdk accepts this? If not at least add a voice input but don't send audio file https://sdk.vercel.ai/docs/foundations/prompts#example-mp3-audio-file-from-buffer
 - [ ] Configure eslint and prettier
 - [ ] Add Github Actions to run tests, prettier and eslint
 - [ ] Add Github rules to only merge with PR
 - [ ] Deploy to vercel
 - [ ] Add beautiful documentation here on README
+- [ ] Receive `api-key` as parameter
+- [ ] Maybe play with having multiple agents (choosing them in the Settings page)
 
 ---
 

@@ -3,7 +3,8 @@
     "title": "Immigration Chatbot",
     "description": "Chat with our AI agent specialized in immigration",
     "sr-chat-input": "Chat input",
-    "sr-send-button": "Send",
+    "sr-send-button": "Send message",
+    "sr-stop-button": "Stop generation",
     "input-placeholder": "How can I help you?",
     "emptyState": {
       "title": "No messages yet",
@@ -27,7 +28,7 @@
   },
   "SettingsPage": {
     "title": "Settings",
-    "description": "Configure avatar image, accent color and some user information.",
+    "description": "Change accent color, theme and language.",
     "backButton": "Chat",
     "accentLabel": "Accent Color",
     "aria-accent": "Color",
