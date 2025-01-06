@@ -11,6 +11,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useChangeLanguage } from "@/lib/hooks/useChangeLanguage";
 import {
   LanguagesIcon,
   LaptopIcon,
@@ -23,18 +24,12 @@ import {
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export function SettingsMenu() {
   const t = useTranslations("ProfileMenu");
   const { theme, setTheme } = useTheme();
 
-  // TODO: refactor to shared function
-  const { refresh } = useRouter();
-  function handleSelectLanguage(lang: "en" | "pt-br" | "fr") {
-    document.cookie = `language=${JSON.stringify(lang)}`;
-    refresh();
-  }
+  const handleSelectLanguage = useChangeLanguage();
 
   return (
     <DropdownMenu>

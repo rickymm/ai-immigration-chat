@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { COLORS } from "@/lib/constants";
+import { useChangeLanguage } from "@/lib/hooks/useChangeLanguage";
 import { changeCssAccentColor } from "@/lib/utils";
 import {
   LaptopIcon,
@@ -13,17 +14,12 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
 
 export function Settings() {
   const t = useTranslations("SettingsPage");
   const { setTheme } = useTheme();
 
-  const { refresh } = useRouter();
-  function handleSelectLanguage(lang: string) {
-    document.cookie = `language=${JSON.stringify(lang)}`;
-    refresh();
-  }
+  const handleSelectLanguage = useChangeLanguage();
 
   function handleAccentColor(colorKey: string) {
     const color = COLORS[colorKey as keyof typeof COLORS];
