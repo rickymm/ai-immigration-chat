@@ -58,6 +58,7 @@ export default {
       },
     },
   },
+  safelist: ["bg-[#1b4850]", "bg-blue-500", "bg-emerald-500", "bg-pink-500"],
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

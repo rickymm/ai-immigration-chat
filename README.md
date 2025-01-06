@@ -1,15 +1,16 @@
 ## TODO
 
-- [ ] Voice input? Does Open AI/sdk accepts this? If not at least add a voice input but don't send audio file https://sdk.vercel.ai/docs/foundations/prompts#example-mp3-audio-file-from-buffer
-- [ ] Configure eslint and prettier
-- [ ] Add Github Actions to run tests, prettier and eslint
-- [ ] Add Github rules to only merge with PR
+Must have:
+
 - [ ] Deploy to vercel
 - [ ] Add beautiful documentation here on README
+- [ ] Check missing todos
+
+Nice to have:
+
+- [ ] Voice input? Does Open AI/sdk accepts this? If not at least add a voice input but don't send audio file https://sdk.vercel.ai/docs/foundations/prompts#example-mp3-audio-file-from-buffer
 - [ ] Receive `api-key` as parameter
 - [ ] Maybe play with having multiple agents (choosing them in the Settings page)
-- [ ] Check missing todos
-- [ ] Check/Fix colors on settings page
 
 ---
 

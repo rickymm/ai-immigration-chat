@@ -1,6 +1,6 @@
 export const COLORS = {
   default: {
-    tw: "bg-[--beacon-primary-color]",
+    tw: "bg-[#1b4850]",
     cssVar: "--beacon-primary-color",
   },
   blue: {

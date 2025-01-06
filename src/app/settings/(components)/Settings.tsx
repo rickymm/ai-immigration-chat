@@ -32,8 +32,6 @@ export function Settings() {
       <div className="form-group" data-testid="accent-container">
         <Label data-testid="accent-label">{t("accentLabel")}</Label>
         <div className="flex space-x-4">
-          {/* TODO: Find out about bug that everything is working but when changing
-          global.css, these buttons lose colors */}
           {Object.keys(COLORS).map((colorKey) => {
             const color = COLORS[colorKey as keyof typeof COLORS].tw;
             return (
@@ -53,7 +51,7 @@ export function Settings() {
             <SendHorizontalIcon />
           </Button>
           <div
-            className="flex px-3 py-1.5 rounded-xl border rounded-br-none bg-primary/20 dark:bg-primary"
+            className="flex rounded-xl rounded-br-none border bg-primary/20 px-3 py-1.5 dark:bg-primary"
             data-testid="element-example"
           >
             {t("exampleButton")}
