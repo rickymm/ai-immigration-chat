@@ -1,14 +1,20 @@
 {
   "ChatPage": {
-    "title": "Immigration Chatbot",
+    "title": "Beacon Immigration Chatbot",
     "description": "Chat with our AI agent specialized in immigration",
     "sr-chat-input": "Chat input",
     "sr-send-button": "Send message",
     "sr-stop-button": "Stop generation",
     "input-placeholder": "How can I help you?",
     "emptyState": {
-      "title": "No messages yet",
-      "description": "Start by sending your first question."
+      "title": "Welcome!",
+      "description": "Start by sending your first question. Here are some suggestions:",
+      "suggestion": {
+        "1": "What can you do?",
+        "2": "What's Beacon?",
+        "3": "What are the types of visa?",
+        "4": "Which country can you help me with?"
+      }
     },
     "sr-you-said": "You said:",
     "sr-ai-said": "AI said:"

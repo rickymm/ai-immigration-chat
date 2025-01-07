@@ -1,8 +1,11 @@
+# Immigration Chatbot
+
+Deployed at: https://ai-immigration-chat.vercel.app/
+
 ## TODO
 
 Must have:
 
-- [ ] Deploy to vercel
 - [ ] Add beautiful documentation here on README
 - [ ] Check missing todos
 
@@ -44,7 +47,7 @@ Focus on component:
 ### Bonus Points
 
 - **User Authentication**: Implement user authentication to personalize responses and save conversation history.
-- \***\*Localization**: Add support for multiple languages using a library like next-i18next.\*\*
-- **Accessibility**: Ensure the chatbot is fully accessible and complies with WCAG guidelines.
+  <!-- - **Localization**: Add support for multiple languages using a library like next-i18next. -->
+  <!-- - **Accessibility**: Ensure the chatbot is fully accessible and complies with WCAG guidelines. -->
 - **Advanced UI Features**: Implement features like typing indicators, message reactions, or voice input.
-- **Deployment**: Deploy the application to a cloud service (e.g., Vercel, Netlify) and provide a live demo link.
+<!-- - **Deployment**: Deploy the application to a cloud service (e.g., Vercel, Netlify) and provide a live demo link. -->

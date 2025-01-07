@@ -1,8 +1,9 @@
-import { screen } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import type { Message } from "ai/react";
 import { renderWithProviders } from "@/lib/testUtils";
 
-import { ChatMessages } from "../ChatMessages";
+import { ChatMessages, type ChatMessagesProps } from "../ChatMessages";
+import userEvent from "@testing-library/user-event";
 
 const fakeUserMessage: Message = {
   id: "1",
@@ -21,21 +22,26 @@ function mockScroll(fn: jest.Mock) {
 }
 
 describe("ChatMessages", () => {
-  function renderComponent(aiMessages: Message[]) {
-    return renderWithProviders(<ChatMessages messages={aiMessages} />);
+  function renderComponent({
+    messages = [],
+    append = jest.fn(),
+  }: Partial<ChatMessagesProps>) {
+    return renderWithProviders(
+      <ChatMessages messages={messages} append={append} />
+    );
   }
   test("should render empty state if no messages", () => {
-    const emptyMessages: Message[] = [];
-    renderComponent(emptyMessages);
+    renderComponent({ messages: [] });
 
     expect(screen.getByTestId("empty-messages-section")).toBeVisible();
+    expect(screen.getByTestId("suggestions-container")).toBeVisible();
   });
 
   test("should render messages section", () => {
     mockScroll(jest.fn());
 
     const messages: Message[] = [fakeUserMessage];
-    renderComponent(messages);
+    renderComponent({ messages });
 
     expect(screen.getByTestId("messages-section")).toBeVisible();
     expect(screen.getByTestId("message-bubble")).toBeVisible();
@@ -45,7 +51,7 @@ describe("ChatMessages", () => {
     mockScroll(jest.fn());
 
     const messages: Message[] = [fakeUserMessage, fakeAIMessage];
-    renderComponent(messages);
+    renderComponent({ messages });
 
     const messagesBubble = screen.getAllByTestId("message-bubble");
     expect(messagesBubble).toHaveLength(messages.length);
@@ -58,8 +64,37 @@ describe("ChatMessages", () => {
     mockScroll(scrollFn);
 
     const messages: Message[] = [fakeUserMessage];
-    renderComponent(messages);
+    renderComponent({ messages });
 
     expect(scrollFn).toHaveBeenCalledTimes(1);
+  });
+
+  test("should render suggestions bubbles", () => {
+    renderComponent({ messages: [] });
+
+    const suggestionsContainer = within(
+      screen.getByTestId("suggestions-container")
+    );
+
+    expect(
+      suggestionsContainer.getAllByTestId("suggestion-bubble")
+    ).toHaveLength(4);
+  });
+
+  test("should call append when suggestion bubble is clicked", async () => {
+    const mockedAppend = jest.fn();
+    renderComponent({ messages: [], append: mockedAppend });
+    const user = userEvent.setup();
+
+    expect(mockedAppend).not.toHaveBeenCalled();
+
+    const suggestionsContainer = within(
+      screen.getByTestId("suggestions-container")
+    );
+    const firstSuggestion =
+      suggestionsContainer.getAllByTestId("suggestion-bubble")[0];
+    await user.click(firstSuggestion);
+
+    expect(mockedAppend).toHaveBeenCalledTimes(1);
   });
 });

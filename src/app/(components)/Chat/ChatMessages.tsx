@@ -3,14 +3,23 @@
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn, formatDateTime } from "@/lib/utils";
-import { type Message } from "ai/react";
-import { InboxIcon } from "lucide-react";
+import type { CreateMessage, Message } from "ai/react";
 import { MyBeaconLogo } from "@/components/svgs/my-beacon-logo";
 import { MarkdownReader } from "./MarkdownReader";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
+import { type ChatRequestOptions } from "ai";
+import { Button } from "@/components/ui/button";
 
-export function ChatMessages({ messages }: { messages: Message[] }) {
+export interface ChatMessagesProps {
+  messages: Message[];
+  append: (
+    message: Message | CreateMessage,
+    chatRequestOptions?: ChatRequestOptions
+  ) => Promise<string | null | undefined>;
+}
+
+export function ChatMessages({ messages, append }: ChatMessagesProps) {
   const t = useTranslations("ChatPage");
   const isMessagesEmpty = messages.length === 0;
   const chatContainerId = "chat-container";
@@ -26,23 +35,50 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
   }, [messages]);
 
   if (isMessagesEmpty) {
+    const suggestions = [
+      t("emptyState.suggestion.1"),
+      t("emptyState.suggestion.2"),
+      t("emptyState.suggestion.3"),
+      t("emptyState.suggestion.4"),
+    ];
     return (
       <section
-        className="flex flex-col justify-center items-center w-full h-[--screen-h]"
+        className="flex h-[--screen-h] w-full flex-col items-center justify-center"
         data-testid="empty-messages-section"
       >
-        <InboxIcon className="size-24 md:size-32" />
-        <span className="font-bold text-lg md:text-2xl">
+        <MyBeaconLogo className="size-36 md:size-48" />
+        <span className="-mt-6 text-lg font-bold md:text-2xl">
           {t("emptyState.title")}
         </span>
-        <p className="text-sm md:text-lg">{t("emptyState.description")}</p>
+        <p className="text-center text-sm md:text-lg">
+          {t("emptyState.description")}
+        </p>
+
+        <div
+          className="flex items-center justify-center gap-2"
+          data-testid="suggestions-container"
+        >
+          {suggestions.map((suggestion) => (
+            <Button
+              key={suggestion}
+              type="button"
+              variant="outline"
+              size="lg"
+              className="text-md rounded-xl rounded-br-none bg-primary/20 px-4 py-2 transition-all hover:shadow-md dark:bg-primary"
+              onClick={() => append({ content: suggestion, role: "user" })}
+              data-testid="suggestion-bubble"
+            >
+              {suggestion}
+            </Button>
+          ))}
+        </div>
       </section>
     );
   }
 
   return (
     <ScrollArea
-      className="w-full h-full pr-4 py-24 md:py-28"
+      className="h-full w-full py-24 pr-4 md:py-28"
       id={chatContainerId}
       data-testid="messages-section"
     >
@@ -53,14 +89,14 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
         return (
           <article
             key={message.id}
-            className={cn("flex items-end gap-2 mb-4 h-full", {
+            className={cn("mb-4 flex h-full items-end gap-2", {
               "justify-end": isUser,
             })}
             data-testid="message-bubble"
           >
             {!isUser && (
-              <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full bg-white dark:bg-slate-800 p-1 border">
-                <MyBeaconLogo className="aspect-square w-full h-full" />
+              <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border bg-white p-1 dark:bg-slate-800">
+                <MyBeaconLogo className="aspect-square h-full w-full" />
               </div>
             )}
 
@@ -76,7 +112,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
               <MarkdownReader
                 content={message.content}
                 className={cn(
-                  "px-4 py-2 whitespace-pre-wrap rounded-xl border max-w-max",
+                  "max-w-max whitespace-pre-wrap rounded-xl border px-4 py-2",
                   isUser
                     ? "rounded-br-none bg-primary/20 dark:bg-primary"
                     : "rounded-bl-none bg-white dark:bg-slate-800"
@@ -85,7 +121,7 @@ export function ChatMessages({ messages }: { messages: Message[] }) {
 
               <span
                 className={cn(
-                  "font-light text-xs text-secondary-foreground pt-1",
+                  "pt-1 text-xs font-light text-secondary-foreground",
                   isUser ? "text-right" : "text-left"
                 )}
               >

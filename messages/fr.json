@@ -2,16 +2,22 @@
   "ChatPage": {
     "description": "Discutez avec notre agent IA spécialisé en immigration",
     "emptyState": {
-      "description": "Commencez par envoyer votre première question.",
-      "title": "Pas encore de messages"
+      "suggestion": {
+        "1": "Que pouvez-vous faire ?",
+        "2": "Qu'est-ce que Beacon ?",
+        "3": "Quels sont les types de visas ?",
+        "4": "Pour quel pays pouvez-vous m'aider ?"
+      },
+      "description": "Commencez par envoyer votre première question. Voici quelques suggestions :",
+      "title": "Bienvenue!"
     },
     "input-placeholder": "Comment puis-je t'aider?",
     "sr-ai-said": "AI a dit :",
     "sr-chat-input": "Entrée dans le chat",
     "sr-send-button": "Envoyer",
     "sr-you-said": "Vous avez dit:",
-    "title": "Chatbot d’immigration",
-    "sr-stop-button": "Arrêter la génération"
+    "sr-stop-button": "Arrêter la génération",
+    "title": "Beacon chatbot d'mmigration"
   },
   "ProfileMenu": {
     "dark": "Sombre",
@@ -19,7 +25,7 @@
     "language": "Langue",
     "light": "Lumière",
     "logout": "Déconnexion",
-    "portuguese": "portugais",
+    "portuguese": "Portugais",
     "settings": "Plus de paramètres",
     "sr-title": "Menu Profil",
     "system": "Système",

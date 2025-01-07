@@ -1,10 +1,16 @@
 {
   "ChatPage": {
-    "title": "Chatbot de Imigração",
+    "title": "Beacon Chatbot de Imigração",
     "description": "Converse com nosso agente de IA especialista em imigração",
     "emptyState": {
-      "description": "Comece enviando sua primeira pergunta.",
-      "title": "Nenhuma mensagem ainda"
+      "suggestion": {
+        "1": "O que você pode fazer?",
+        "2": "O que é a Beacon?",
+        "3": "Quais são os tipos de visto?",
+        "4": "Em qual país você pode me ajudar?"
+      },
+      "description": "Comece enviando sua primeira pergunta. Aqui estão algumas sugestões:",
+      "title": "Bem-vindo!"
     },
     "input-placeholder": "Como posso ajudá-lo?",
     "sr-ai-said": "IA disse:",
