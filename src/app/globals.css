@@ -84,11 +84,7 @@
   }
 
   .glass {
-    @apply bg-white/50 dark:bg-slate-500/30 backdrop-blur-md;
-  }
-
-  .glass-card {
-    @apply fixed top-4 glass z-10 rounded-md left-auto w-[--mobile-w] md:w-[--screen-w] shadow-sm p-4 md:p-6 mb-4 flex space-x-4;
+    @apply bg-white/50 backdrop-blur-md dark:bg-slate-500/30;
   }
 
   .form-group {
