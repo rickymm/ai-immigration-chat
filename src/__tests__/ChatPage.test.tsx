@@ -2,7 +2,12 @@ import { renderWithProviders } from "@/lib/testUtils";
 import { screen, within } from "@testing-library/react";
 
 import ChatPage from "../app/page";
+import {
+  MessagesProvider,
+  type ContextMessage,
+} from "@/contexts/MessagesContext";
 
+const mockedSetMessages = jest.fn();
 jest.mock("ai/react", () => ({
   useChat: () => ({
     input: "",
@@ -11,6 +16,7 @@ jest.mock("ai/react", () => ({
     messages: [],
     isLoading: false,
     stop: jest.fn(),
+    setMessages: mockedSetMessages,
   }),
 }));
 
@@ -19,8 +25,12 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Chat Page", () => {
-  function renderPage() {
-    return renderWithProviders(<ChatPage />);
+  function renderPage(initialMessages: ContextMessage = []) {
+    return renderWithProviders(
+      <MessagesProvider initialMessages={initialMessages}>
+        <ChatPage />
+      </MessagesProvider>
+    );
   }
 
   test("should render header and chat sections", () => {
@@ -40,5 +50,15 @@ describe("Chat Page", () => {
     expect(description).toBeVisible();
 
     expect(header.getByTestId("settings-menu-button")).toBeVisible();
+  });
+
+  test("should call setMessages if there's stored messages", async () => {
+    const storedMessages: ContextMessage = [
+      { content: "Saved question", id: "1", role: "user" },
+      { content: "Saved answer", id: "2", role: "assistant" },
+    ];
+    renderPage(storedMessages);
+
+    expect(mockedSetMessages).toHaveBeenCalledTimes(1);
   });
 });

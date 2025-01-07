@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { cookies } from "next/headers";
 import { COLORS } from "@/lib/constants";
+import { MessagesProvider } from "@/contexts/MessagesContext";
 
 const montserratSans = Montserrat({
   variable: "--font-montserrat-sans",
@@ -36,7 +37,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${montserratSans.variable} antialiased bg-background`}>
+      <body className={`${montserratSans.variable} bg-background antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -45,7 +46,7 @@ export default async function RootLayout({
           accentColor={accentColor.cssVar}
         >
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <MessagesProvider>{children}</MessagesProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

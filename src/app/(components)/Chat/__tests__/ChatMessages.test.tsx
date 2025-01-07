@@ -55,8 +55,12 @@ describe("ChatMessages", () => {
 
     const messagesBubble = screen.getAllByTestId("message-bubble");
     expect(messagesBubble).toHaveLength(messages.length);
+
     expect(messagesBubble[0]).toBeVisible();
+    expect(messagesBubble[0]).toHaveTextContent(messages[0].content);
+
     expect(messagesBubble[1]).toBeVisible();
+    expect(messagesBubble[1]).toHaveTextContent(messages[1].content);
   });
 
   test("should call scroll when messages are rendered", () => {

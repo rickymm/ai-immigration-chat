@@ -34,6 +34,11 @@ export function ChatMessages({ messages, append }: ChatMessagesProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
+  function handleSelectSuggestion(suggestion: string) {
+    const newMessage: CreateMessage = { content: suggestion, role: "user" };
+    append(newMessage);
+  }
+
   if (isMessagesEmpty) {
     const suggestions = [
       t("emptyState.suggestion.1"),
@@ -47,7 +52,7 @@ export function ChatMessages({ messages, append }: ChatMessagesProps) {
         data-testid="empty-messages-section"
       >
         <MyBeaconLogo className="size-36 md:size-48" />
-        <span className="-mt-6 text-lg font-bold md:text-2xl">
+        <span className="-mt-6 text-lg font-extrabold md:text-2xl">
           {t("emptyState.title")}
         </span>
         <p className="text-center text-sm md:text-lg">
@@ -55,7 +60,7 @@ export function ChatMessages({ messages, append }: ChatMessagesProps) {
         </p>
 
         <div
-          className="flex items-center justify-center gap-2"
+          className="mt-2 flex flex-col items-end gap-2 md:flex-row"
           data-testid="suggestions-container"
         >
           {suggestions.map((suggestion) => (
@@ -64,8 +69,8 @@ export function ChatMessages({ messages, append }: ChatMessagesProps) {
               type="button"
               variant="outline"
               size="lg"
-              className="text-md rounded-xl rounded-br-none bg-primary/20 px-4 py-2 transition-all hover:shadow-md dark:bg-primary"
-              onClick={() => append({ content: suggestion, role: "user" })}
+              className="text-md max-w-max justify-start rounded-xl rounded-br-none bg-primary/20 px-4 py-2 transition-all hover:shadow-md dark:bg-primary"
+              onClick={() => handleSelectSuggestion(suggestion)}
               data-testid="suggestion-bubble"
             >
               {suggestion}
